@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Göktuğ Aslanoğlu</title>
+<meta name="description" content="Göktuğ Aslanoğlu — AI researcher working on NLP and computer vision.">
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #F6F5F1;
+    --ink: #1B1F23;
+    --ink-soft: #565C63;
+    --line: #D8D5CC;
+    --signal: #2B4C8C;
+    --collapse: #9AA0A6;
+    --paper: #FFFFFF;
+    --radius: 3px;
+  }
+
+  *{ box-sizing: border-box; }
+
+  html{ scroll-behavior: smooth; }
+
+  body{
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'IBM Plex Sans', system-ui, sans-serif;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a{ color: inherit; }
+
+  :focus-visible{
+    outline: 2px solid var(--signal);
+    outline-offset: 3px;
+  }
+
+  .wrap{
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 6rem 1.5rem 4rem;
+  }
+
+  .eyebrow{
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin: 0 0 1.1rem;
+  }
+
+  h1{
+    font-family: 'Newsreader', serif;
+    font-weight: 500;
+    font-size: clamp(2.4rem, 6vw, 3.4rem);
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+    margin: 0 0 1rem;
+  }
+
+  .tagline{
+    font-family: 'Newsreader', serif;
+    font-style: italic;
+    font-size: 1.15rem;
+    color: var(--ink-soft);
+    max-width: 34ch;
+    margin: 0 0 3.2rem;
+  }
+
+  .divider{
+    border: none;
+    border-top: 1px solid var(--line);
+    margin: 3rem 0;
+  }
+
+  /* signal-decay signature: a row of bars losing confidence, left to right */
+  .signal{
+    display: flex;
+    align-items: flex-end;
+    gap: 5px;
+    height: 26px;
+    margin-bottom: 1.4rem;
+  }
+  .signal span{
+    display: block;
+    width: 5px;
+    background: var(--signal);
+    border-radius: 1px;
+  }
+  .signal span:nth-child(1){ height: 26px; opacity: 1; }
+  .signal span:nth-child(2){ height: 21px; opacity: 0.85; }
+  .signal span:nth-child(3){ height: 16px; opacity: 0.65; background: var(--collapse); }
+  .signal span:nth-child(4){ height: 11px; opacity: 0.5; background: var(--collapse); }
+  .signal span:nth-child(5){ height: 7px; opacity: 0.35; background: var(--collapse); }
+  .signal span:nth-child(6){ height: 4px; opacity: 0.22; background: var(--collapse); }
+
+  .section-label{
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin: 0 0 1rem;
+  }
+
+  .paper{
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 1.6rem 1.7rem;
+  }
+
+  .paper h2{
+    font-family: 'Newsreader', serif;
+    font-weight: 500;
+    font-size: 1.28rem;
+    line-height: 1.35;
+    margin: 0 0 0.7rem;
+  }
+
+  .paper .venue{
+    font-size: 0.92rem;
+    color: var(--ink-soft);
+    margin: 0 0 1rem;
+  }
+
+  .status{
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.78rem;
+    color: var(--ink-soft);
+  }
+  .status::before{
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--collapse);
+  }
+
+  .links{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .links li{
+    border-bottom: 1px solid var(--line);
+  }
+  .links li:first-child{
+    border-top: 1px solid var(--line);
+  }
+
+  .links a, .links .disabled{
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 0.85rem 0.1rem;
+    text-decoration: none;
+    font-size: 1rem;
+  }
+
+  .links a{
+    transition: color 0.15s ease;
+  }
+  .links a:hover, .links a:focus-visible{
+    color: var(--signal);
+  }
+
+  .links .label{
+    font-weight: 500;
+  }
+
+  .links .meta{
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.78rem;
+    color: var(--ink-soft);
+  }
+
+  .links .disabled{
+    color: var(--ink-soft);
+    cursor: default;
+  }
+  .links .disabled .meta{
+    color: var(--collapse);
+  }
+
+  footer{
+    margin-top: 3.5rem;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--collapse);
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior: auto; }
+  }
+</style>
+</head>
+<body>
+  <main class="wrap">
+    <p class="eyebrow">AI Researcher — NLP &amp; Computer Vision</p>
+    <h1>Göktuğ Aslanoğlu</h1>
+    <p class="tagline">Machine learning research on natural language processing and computer vision — currently focused on multimodal retrieval.</p>
+
+    <hr class="divider">
+
+    <div class="signal" aria-hidden="true">
+      <span></span><span></span><span></span><span></span><span></span><span></span>
+    </div>
+    <p class="section-label">Current work</p>
+    <div class="paper">
+      <h2>Visual Evidence Collapse as the Missing Signal in Adaptive Multimodal Retrieval: A Position</h2>
+      <p class="venue">ICML Workshop on EMM-QA</p>
+      <span class="status">Paper coming soon — arXiv link will be added here</span>
+    </div>
+
+    <hr class="divider">
+
+    <p class="section-label">Links</p>
+    <ul class="links">
+      <li>
+        <a href="https://linkedin.com/in/goktug-aslanoglu" target="_blank" rel="noopener">
+          <span class="label">LinkedIn</span>
+          <span class="meta">in/goktug-aslanoglu</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://github.com/GoktugAslanoglu" target="_blank" rel="noopener">
+          <span class="label">GitHub</span>
+          <span class="meta">@GoktugAslanoglu</span>
+        </a>
+      </li>
+      <li>
+        <a href="mailto:goktugaslanoglu@gmail.com">
+          <span class="label">Email</span>
+          <span class="meta">goktugaslanoglu@gmail.com</span>
+        </a>
+      </li>
+      <li>
+        <span class="disabled">
+          <span class="label">Google Scholar</span>
+          <span class="meta">coming soon</span>
+        </span>
+      </li>
+    </ul>
+
+    <footer>Last updated July 2026</footer>
+  </main>
+</body>
+</html>
