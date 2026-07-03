@@ -32,7 +32,7 @@ This website collects my academic work, including papers, projects, links, and u
 ## Publications
 
 ### Visual Evidence Collapse as the Missing Signal in Adaptive Multimodal Retrieval: A Position
-**ICML Workshop**  
+**ICML Workshop on EMM-QA**  
 Status: *Paper coming soon*
 
 ---
