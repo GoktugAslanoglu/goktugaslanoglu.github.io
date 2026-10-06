@@ -18,3 +18,17 @@
     try { localStorage.setItem('homepage-theme', theme); } catch { /* Storage is optional. */ }
   });
 })();
+
+(() => {
+  const button = document.querySelector('.copy-email');
+  const status = document.querySelector('.copy-status');
+  button.hidden = false;
+  button.addEventListener('click', async () => {
+    try {
+      await navigator.clipboard.writeText(button.dataset.email);
+      status.textContent = 'Email address copied.';
+    } catch {
+      status.textContent = 'Select the email address above to copy it manually.';
+    }
+  });
+})();
