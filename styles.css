@@ -15,8 +15,7 @@ button { font:inherit; }
 .site-header { position:sticky; top:0; background:var(--bg); border-bottom:1px solid var(--border); z-index:20; }
 .header-inner { min-height:82px; display:flex; align-items:center; gap:30px; }
 .wordmark { display:flex; align-items:center; gap:14px; text-decoration:none; }
-.brand-mark { font-family:var(--mono); font-size:22px; font-weight:700; letter-spacing:-3px; border:1px solid var(--border); width:43px; height:43px; display:grid; grid-auto-flow:column; align-items:center; justify-content:center; border-radius:10px; padding-right:3px; }
-.brand-mark span { color:var(--accent); }
+.brand-mark { font-family:var(--mono); font-size:19px; font-weight:700; letter-spacing:-1px; border:1px solid var(--border); width:43px; height:43px; display:grid; grid-auto-flow:column; align-items:center; justify-content:center; border-radius:10px; color:var(--accent); }
 .brand-name { font-size:13px; font-weight:600; }
 nav { display:flex; gap:27px; margin-left:auto; }
 nav a { font-size:12px; text-decoration:none; color:var(--muted); }
